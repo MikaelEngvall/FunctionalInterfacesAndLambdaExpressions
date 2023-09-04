@@ -30,11 +30,17 @@ public class App
                 new Product("TV", 800, 11),
                 new Product("Fridge", 1300, 5),
                 new Product("Barista", 400, 65),
-                new Product("Tooth brush", 125, 0)
+                new Product("Tooth brush", 125, 0),
+                new Product("Induction Owen", 600, 0),
+                new Product("Satelite Dish", 400, 0),
+                new Product("Chromecast", 149, 6),
+                new Product("Banana candy", 5, 60)
         );
 
         // Scenario 1: Print out all Products that have stock value of 0.
-        processProducts(productList, product -> product.getStock() == 0, product -> System.out.println("0 in stock :" + product.getProductName()));
+        System.out.print("0 in stock : ");
+        processProducts(productList, product -> product.getStock() == 0, product -> System.out.print(product.getProductName() + ". "));
+        System.out.println();
 
         // Scenario 2: Print out the productName of all the Products that start with B.
         processProducts(productList, product -> product.getProductName().startsWith("B"),
@@ -42,7 +48,7 @@ public class App
 
         // Scenario 3: Print out all Products that have price above 100 AND lower than 150.
         processProducts(productList, product -> product.getPrice() > 100 && product.getPrice() < 150,
-                product -> System.out.println("Pricetag between 100 and 150 : " + product.getProductName() + " at " + product.getPrice()));
+                product -> System.out.println("Pricetag(s) between 100 and 150 : " + product.getProductName() + " at " + product.getPrice()));
 
         // Scenario 4: Increase the price of all Products that have stock value of less than 10 AND above 0 by 50%.
         processProducts(productList, product -> product.getStock() > 0 && product.getStock() < 10,
